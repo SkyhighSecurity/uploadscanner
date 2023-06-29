@@ -17,11 +17,10 @@ s3 = boto3.client('s3',
 
 bucket_name = os.getenv('S3_BUCKET_NAME')  # Replace with your S3 bucket name
 
-SCAN_API_BASE_URL = os.getenv('SCAN_API_BASE_URL')
-
 def scanfile(file):
     random_number = str(random.randint(1000000, 9999999))
-    url = f'{SCAN_API_BASE_URL}/GAMScanServer/v1/scans/cScanner/{random_number}'
+    SCAN_API_BASE_URL = os.getenv('SCAN_API_BASE_URL')
+    url = f'{SCAN_API_BASE_URL}/GAMScanServer/v1/scans/cScanner/s{random_number}'
 
     file.seek(0)  # reset file pointer to the beginning
     files = {'file': file}
