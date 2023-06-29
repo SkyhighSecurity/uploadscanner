@@ -10,12 +10,12 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Maximum file size: 16MB
 app.secret_key = os.getenv('SECRET_KEY')
 
 s3 = boto3.client('s3', 
-                  aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                  aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-                  region_name=os.getenv('AWS_REGION'),
-                  endpoint_url=os.getenv('AWS_S3_ENDPOINT_URL'))
+                  aws_access_key_id=os.getenv('S3_ACCESS_KEY_ID'),
+                  aws_secret_access_key=os.getenv('S3_SECRET_ACCESS_KEY'),
+                  region_name=os.getenv('S3_REGION'),
+                  endpoint_url=os.getenv('S3_ENDPOINT_URL'))
 
-bucket_name = 'your-s3-bucket'  # Replace with your S3 bucket name
+bucket_name = os.getenv('S3_BUCKET_NAME')  # Replace with your S3 bucket name
 
 SCAN_API_BASE_URL = os.getenv('SCAN_API_BASE_URL')
 
