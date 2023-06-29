@@ -70,4 +70,4 @@ def upload_file():
     '''.format('<br>'.join([f'<p style="color: red;">{message}</p>' for message in get_flashed_messages()]))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
